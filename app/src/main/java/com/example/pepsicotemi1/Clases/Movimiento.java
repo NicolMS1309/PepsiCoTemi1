@@ -43,6 +43,6 @@ public class Movimiento implements OnGoToLocationStatusChangedListener {
 
     @Override
     public void onGoToLocationStatusChanged(@NonNull String s, @NonNull String s1, int i, @NonNull String s2) {
-
+        Log.i(TAG, "Ubicación: " + s + "\nEstatus: " + s1 + "\nIdDescripción: " + i + "\nDescripción: " + s2);
     }
 }

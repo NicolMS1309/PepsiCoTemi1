@@ -43,13 +43,19 @@ public class MainActivity extends AppCompatActivity {
         super.onStart();
 
         deteccion = new Deteccion(this, this);
-        deteccion.addListener();
+        deteccion.AddListener();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        deteccion.RemoveListener();
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        deteccion.removeListener();
+        deteccion.RemoveListener();
     }
 
     @Override
