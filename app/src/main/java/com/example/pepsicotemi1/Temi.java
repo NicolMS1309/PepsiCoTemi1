@@ -60,7 +60,7 @@ public class Temi extends AppCompatActivity {
                         tts.Speak("Hola bienvenido, síganme para llevarlos a la entrada de los elevadores");
                         break;
                     case 2:
-                        tts.Speak("");
+                        tts.Speak("Hemos llegado, espero verte pronto, bai");
                         break;
                 }
             }

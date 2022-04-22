@@ -33,7 +33,7 @@ public class TTS{
         this.nombreClase = nombreClase;
         this.numSpeech = numSpeech;
         movimiento = new Movimiento(context, main);
-        movimiento.addListener();
+        movimiento.AddListener();
         try {
             //Sirve para asignarle un ID a cada frase que va a ejecutar el TTS
             params.put(TextToSpeech.Engine.KEY_PARAM_UTTERANCE_ID, "idHabla");
@@ -70,7 +70,10 @@ public class TTS{
                         if (nombreClase.equals("temi")){
                             switch (numSpeech){
                                 case 1:
-                                    movimiento.irA("1");
+                                    movimiento.irA("2");
+                                    break;
+                                case 2:
+                                    movimiento.irA("home base");
                                     break;
                             }
                         }
@@ -102,6 +105,6 @@ public class TTS{
     //Ayuda a cancelar y borrar toda la pila de TTS
     public void Apagar(){
         textToSpeech.shutdown();
-        movimiento.removeListener();
+        movimiento.RemoveListener();
     }
 }
