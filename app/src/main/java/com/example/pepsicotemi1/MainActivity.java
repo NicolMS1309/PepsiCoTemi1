@@ -3,9 +3,12 @@ package com.example.pepsicotemi1;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 
 import com.example.pepsicotemi1.Clases.Deteccion;
+import com.example.pepsicotemi1.Clases.Movimiento;
+import com.robotemi.sdk.Robot;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -38,15 +41,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        deteccion = new Deteccion(this, this);
 
+        deteccion = new Deteccion(this, this);
         deteccion.addListener();
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-
         deteccion.removeListener();
     }
 
