@@ -5,15 +5,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.VideoView;
 
 import com.example.pepsicotemi1.Clases.Deteccion;
 import com.example.pepsicotemi1.Clases.Movimiento;
+import com.example.pepsicotemi1.Clases.Videos;
 import com.robotemi.sdk.Robot;
 
 public class MainActivity extends AppCompatActivity {
 
 
     private Deteccion deteccion;
+    private VideoView vv_Videos;
+    private Videos videos;
 
 
     @Override
@@ -42,6 +46,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
+        vv_Videos = findViewById(R.id.vv_Videos);
+        videos = new Videos(this,this, vv_Videos);
+
         deteccion = new Deteccion(this, this);
         deteccion.AddListener();
     }
@@ -50,12 +57,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         deteccion.RemoveListener();
+        videos.DetenerVideos();
     }
 
     @Override
     protected void onStop() {
         super.onStop();
         deteccion.RemoveListener();
+        videos.DetenerVideos();
     }
 
     @Override
