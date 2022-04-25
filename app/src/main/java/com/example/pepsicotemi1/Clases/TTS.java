@@ -89,7 +89,7 @@ public class TTS{
                                     movimiento.irA("2");
                                     break;
                                 case 2:
-                                    movimiento.irA("home base");
+                                    movimiento.irA("1");
                                     break;
                             }
                         }

@@ -61,10 +61,10 @@ public class Temi extends AppCompatActivity {
             public void run() {
                 switch (numSpeech){
                     case 1:
-                        tts.Speak("Hola bienvenido, síganme para llevarlos a la entrada de los elevadores");
+                        tts.Speak("Hola bienvenidos a POP ATELIER, síganme para llevarlos a la entrada de los elevadores");
                         break;
                     case 2:
-                        tts.Speak("Hemos llegado, espero verte pronto, bai");
+                        tts.Speak("Hemos llegado. El equipo de POP ATELIER los espera arriba");
                         break;
                 }
             }

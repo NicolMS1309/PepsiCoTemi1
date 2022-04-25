@@ -72,7 +72,7 @@ public class Movimiento implements OnGoToLocationStatusChangedListener {
                     next.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                     main.startActivity(next);
                 }
-                else if (s.equals("home base")){
+                else if (s.equals("1")){
                     Intent next = new Intent(context, MainActivity.class);
                     next.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                     main.startActivity(next);
