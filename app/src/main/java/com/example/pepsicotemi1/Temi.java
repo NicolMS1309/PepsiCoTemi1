@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.widget.VideoView;
 
 import com.example.pepsicotemi1.Clases.TTS;
 
@@ -14,6 +15,7 @@ public class Temi extends AppCompatActivity {
     private Handler hablaHandler = new Handler();
     private Runnable hablaRunnable;
     private int numSpeech;
+    private VideoView vv_Temi;
 
 
 
@@ -49,8 +51,10 @@ public class Temi extends AppCompatActivity {
             numSpeech = 1;
         }
 
+        vv_Temi = findViewById(R.id.vv_Temi);
 
-        tts = new TTS(this, this, getLocalClassName().toLowerCase(), numSpeech);
+
+        tts = new TTS(this, this, getLocalClassName().toLowerCase(), numSpeech, vv_Temi);
 
         hablaRunnable = new Runnable() {
             @Override

@@ -2,12 +2,17 @@ package com.example.pepsicotemi1.Clases;
 
 import android.content.Context;
 import android.content.Intent;
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.UtteranceProgressListener;
 import android.util.Log;
+import android.widget.VideoView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.pepsicotemi1.R;
 
 import java.util.HashMap;
 import java.util.Locale;
@@ -25,13 +30,16 @@ public class TTS{
     private String nombreClase;
     private int numSpeech;
     private Movimiento movimiento;
+    private VideoView view;
 
     //Construtor del TTS
-    public TTS(Context context, AppCompatActivity main, String nombreClase, int numSpeech){
+    public TTS(Context context, AppCompatActivity main, String nombreClase, int numSpeech,VideoView view){
         this.context = context;
         this.main = main;
         this.nombreClase = nombreClase;
         this.numSpeech = numSpeech;
+        this.view = view;
+        view.setVideoURI(Uri.parse("android.resource://" + context.getPackageName() + "/" + R.raw.v_temi));
         movimiento = new Movimiento(context, main);
         movimiento.AddListener();
         try {
@@ -61,11 +69,19 @@ public class TTS{
                 @Override
                 public void onStart(String utteranceId) {
                     System.out.println("Empece a Hablar");
+                    view.start();
+                    view.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+                        @Override
+                        public void onPrepared(MediaPlayer mediaPlayer) {
+                            mediaPlayer.setLooping(true);
+                        }
+                    });
                 }
 
                 @Override
                 public void onDone(String utteranceId) {
                     System.out.println("Termine de Hablar");
+                    view.stopPlayback();
                     if (nombreClase != null){
                         if (nombreClase.equals("temi")){
                             switch (numSpeech){
